@@ -12,22 +12,22 @@ import { FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 export class DataBindingComponent {
   name="";
   email="";
-  dob=new FormControl();
+  dob="";
   count=0;
   currentEmail(){
     console.log("email is", this.email);
   }
-  onSubmitEmail(){
-    if(!this.email){
-      console.log("No Email found!");
-      return;
-    }
-    console.log("email is", this.email);
+  onSubmit(){
+    console.log("Name: ", this.email);
+    console.log("Email: ", this.email);
+    console.log("DOB: ", this.email);
+    console.log("Save Button Clicked:", ++this.count);
 
   }
   onClear(){
     this.name="";
     this.email="";
+    this.dob="";
   }
 
   onCountIncrement(n: number){

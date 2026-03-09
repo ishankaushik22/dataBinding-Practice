@@ -1,14 +1,23 @@
-<p>data-binding works!</p>
+<h3>User profile Component</h3>
+<h5>Welcome {{name}}!</h5>
 
-<input [(ngModel)]="name" placeholder="Input Name"/>
-<span> New name: {{name}}</span>
+<span>Enter Name: </span>
+    <input [(ngModel)]="name" placeholder="Input Name"/>
 <br>
-<input [(ngModel)]="email"] (change)="currentEmail()" placeholder="enter email">
+<span>Enter Email: </span>
+    <input [(ngModel)]="email"] placeholder="Enter email">
+<br>
+<span>Enter Date of birth: </span>
+    <input [(ngModel)]="dob" placeholder="Input DOB"/>
+    <br>
+<button (click)="onSubmit()" [disabled]="!(name && email && dob)">Submit</button>
+<button (click)="onClear()">Reset</button>
 
-<button (click)="onSubmitEmail()" [disabled]="!email">Submit</button>
-<button (click)="onClear()">Clear</button>
-<br/>
-<p> {{count}}</p>
-<button (click)="onCountIncrement(1)">Increment Count</button>
-<button (click)="onCountIncrement(-1)">Decrement Count</button>
+<div style="margin-top:50px;">
+    <p>Name: {{name}}</p>
+    <p>Email: {{email}}</p>
+    <p>Date of Birth: {{dob}}</p>
+    <p> Save Button Clicked: {{count}}</p>
+</div>
+
 
