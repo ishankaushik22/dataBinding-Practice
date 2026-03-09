@@ -1,36 +1,30 @@
 import { Component } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @Component({
   selector: 'app-data-binding',
   standalone: true,
-  imports: [FormsModule,],
+  imports: [FormsModule,ReactiveFormsModule ],
   templateUrl: './data-binding.component.html',
   styleUrl: './data-binding.component.scss'
 })
 export class DataBindingComponent {
-  name="";
-  email="";
-  dob="";
-  count=0;
-  currentEmail(){
-    console.log("email is", this.email);
-  }
-  onSubmit(){
-    console.log("Name: ", this.email);
-    console.log("Email: ", this.email);
-    console.log("DOB: ", this.email);
-    console.log("Save Button Clicked:", ++this.count);
 
+  count=0;
+
+  registerDetails= new FormGroup({
+    'name':new FormControl(''),
+    'email': new FormControl(''),
+    'dob': new FormControl(''),    
+  });
+
+  onSubmit(){
+    console.log("object:", this.registerDetails.value);
+    this.count++;
+    console.log(this.count);
   }
   onClear(){
-    this.name="";
-    this.email="";
-    this.dob="";
-  }
-
-  onCountIncrement(n: number){
-    this.count=this.count+n;
+    this.registerDetails.reset();
   }
 }

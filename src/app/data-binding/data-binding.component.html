@@ -1,23 +1,26 @@
 <h3>User profile Component</h3>
-<h5>Welcome {{name}}!</h5>
-
-<span>Enter Name: </span>
-    <input [(ngModel)]="name" placeholder="Input Name"/>
-<br>
-<span>Enter Email: </span>
-    <input [(ngModel)]="email"] placeholder="Enter email">
-<br>
-<span>Enter Date of birth: </span>
-    <input [(ngModel)]="dob" placeholder="Input DOB"/>
+<h5>Welcome {{registerDetails.value.name}}!</h5>
+<form [formGroup]="registerDetails">
+    <span>Enter Name: </span>
+        <input  formControlName="name" placeholder="Input Name"/>
     <br>
-<button (click)="onSubmit()" [disabled]="!(name && email && dob)">Submit</button>
-<button (click)="onClear()">Reset</button>
-
-<div style="margin-top:50px;">
-    <p>Name: {{name}}</p>
-    <p>Email: {{email}}</p>
-    <p>Date of Birth: {{dob}}</p>
-    <p> Save Button Clicked: {{count}}</p>
+    <span>Enter Email: </span>
+        <input formControlName="email" placeholder="Enter email">
+    <br>
+    <span>Enter Date of birth: </span>
+        <input formControlName="dob" placeholder="Input DOB"/>
+        <br>
+    <button (click)="onSubmit()" [disabled]="!(registerDetails.value.name && registerDetails.value.email && registerDetails.value.dob)">Submit</button>
+    <button (click)="onClear()">Reset</button>
+</form>
+<div id="profileDisplay" style="margin-top:50px">
+    <p>Name: {{registerDetails.value.name}}</p>
+    <p>Email: {{registerDetails.value.email}}</p>
+    <p>DOB: {{registerDetails.value.dob}}</p>
+    <p>Saved button clicked: {{count}}</p>
 </div>
+
+
+
 
 
