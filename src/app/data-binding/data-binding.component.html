@@ -1,0 +1,14 @@
+<p>data-binding works!</p>
+
+<input [(ngModel)]="name" placeholder="Input Name"/>
+<span> New name: {{name}}</span>
+<br>
+<input [(ngModel)]="email"] (change)="currentEmail()" placeholder="enter email">
+
+<button (click)="onSubmitEmail()" [disabled]="!email">Submit</button>
+<button (click)="onClear()">Clear</button>
+<br/>
+<p> {{count}}</p>
+<button (click)="onCountIncrement(1)">Increment Count</button>
+<button (click)="onCountIncrement(-1)">Decrement Count</button>
+
